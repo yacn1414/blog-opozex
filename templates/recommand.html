@@ -1,0 +1,33 @@
+<div class="list-group text-right">
+    {% for posts in post %}
+    {% comment %} <div class="card m-3 text-right" style="width: 18rem;">
+      <img class="card-img-top" src="/{{posts.preview}}" alt="Card image cap">
+      <strong class="d-inline-block text-primary text-left">{% for ca in posts.categories.all %} &nbsp;&nbsp;&nbsp;<a href="{{ca.slug}}">{{ca}}</a>&nbsp;&nbsp;&nbsp;  {% endfor %}</strong>
+          
+  
+      <div class="card-body">
+        <h5 class="card-title" >{{posts.title}}</h5>
+        <hr>
+        <p class="card-text">{{ posts.caption|truncatechars:100 }}</p>
+        <p class="card-text bg-light" style="transform: rotate(0);">
+            این <a href="#" class="text-warning stretched-link">پست</a> منتخب شده از بین پست ها بوده است
+          </p>
+        
+      </div>
+    </div>  {% endcomment %}
+    {% comment %} <div class="row no-gutters bg-light text-right mt-3 position-relative">
+      <div class="col-md-6 mb-md-0 p-md-4">
+        <img src="/{{posts.preview}}" class="w-100" alt="...">
+      </div>
+      <div class="col-md-6 position-static p-4 pl-md-0">
+        <h5 class="mt-0">{{posts.title}}</h5>
+        <p>{{posts.caption|truncatechars:400}}.</p>
+        <a href="{% url "detail:detail_post" slug=posts.slug %}" class="stretched-link">ادامه...</a>
+      </div>
+    </div> {% endcomment %}
+
+      <a href="/{{posts.slug}}" class="list-group-item list-group-item-action list-group-item-info">{{posts.title}} |بازدید : {{posts.views}}</a>
+
+      {% endfor %}
+    </div>
+  
