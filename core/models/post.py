@@ -1,10 +1,10 @@
 from django.db import models
 from django.urls import reverse
 from django.contrib.auth.models import User
-from core.models import cat
+from core.models import cat,IpAddress
 class posts(models.Model):
     title = models.CharField(max_length=255)
-    views = models.IntegerField(default=0)
+    views =models.ManyToManyField(IpAddress,blank=True,related_name="hits")
     caption = models.TextField()
     categories = models.ManyToManyField(cat)
     preview = models.ImageField(upload_to='static/images/')    

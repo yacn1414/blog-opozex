@@ -1,11 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{request.POST.search}}</title>
-</head>
-<body>
+{% extends "base.html" %}
+{% load static %}
+{% block title %}{{request.POST.search}}{% endblock title %}
+{% block main %}
+<div class="container">
     
-</body>
-</html>
+<div class="list-group text-right">
+
+{% for se in search %}
+<a href="/{{se.slug}}" class="list-group-item list-group-item-action list-group-item-info">{{se.title}} |بازدید : {{se.views.count}}</a>
+{% empty %}
+Not found 404
+{% endfor %}
+
+</div>
+</div>
+    {% endblock main %}

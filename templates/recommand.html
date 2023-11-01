@@ -26,7 +26,7 @@
       </div>
     </div> {% endcomment %}
 
-      <a href="/{{posts.slug}}" class="list-group-item list-group-item-action list-group-item-info">{{posts.title}} |بازدید : {{posts.views}}</a>
+      <a href="/{{posts.slug}}" class="list-group-item list-group-item-action list-group-item-info">{{posts.title}} |بازدید : {{posts.views.count}}</a>
 
       {% endfor %}
     </div>

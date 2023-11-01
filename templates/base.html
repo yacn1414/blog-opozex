@@ -45,7 +45,7 @@
     <!-- Custom styles for this template -->
     <link href="{% static "/css/blog.css" %}" rel="stylesheet">
   </head>
-  <body>
+  <body class="d-flex flex-column min-vh-100">
     <div class="container">
   <header class="blog-header py-3">
     <div class="row flex-nowrap justify-content-between align-items-center">
@@ -53,13 +53,18 @@
         <a class="text-muted">آزمایشی</a>
       </div>
  
-      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">search</button>
+      <div class="col-4 text-center">
+        <a class="blog-header-logo text-dark" href="/">Opozex</a>
+      </div>
+      <div class="col-4 d-flex justify-content-end align-items-center">
+        
+      <button type="button" class="btn" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="mx-3" role="img" viewBox="0 0 24 24" focusable="false"><title>جستجو</title><circle cx="10.5" cy="10.5" r="7.5"/><path d="M21 21l-5.2-5.2"/></svg></button>
     
       <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">جستجو</h5>
+              <h5 class="modal-title" id="exampleModalLabel"></h5>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
@@ -81,15 +86,7 @@
           </div>
         </div>
       </div>
-      <div class="col-4 text-center">
-        <a class="blog-header-logo text-dark" href="/">Opozex</a>
-      </div>
-      <div class="col-4 d-flex justify-content-end align-items-center">
-        <a class="text-muted" href="{% url "detail:search" %}">
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="mx-3" role="img" viewBox="0 0 24 24" focusable="false"><title>جستجو</title><circle cx="10.5" cy="10.5" r="7.5"/><path d="M21 21l-5.2-5.2"/></svg>
-        </a> 
-        
-        <a class="btn btn-sm btn-outline-secondary" href="{% url "auth:login" %}">ورود</a>
+        {% comment %} <a class="btn btn-sm btn-outline-secondary" href="{% url "auth:login" %}">ورود</a> {% endcomment %}
       </div>
     </div>
   </header>
@@ -97,7 +94,7 @@
   <div class="nav-scroller py-1 mb-2">
     <nav class="nav d-flex justify-content-between">
       {% for cate in cat %}
-      <a class="p-2 text-muted" href="{{cate.slug}}">{{cate.title}}</a>
+      <a class="p-2 text-muted" href="{% url "detail:category" cate.slug %}">{{cate.title}}</a>
       {% endfor %}
     </nav>
   </div>
@@ -114,8 +111,8 @@
 </div>
 <hr>
 {% block main %}{% endblock main %}
-<center>
-<footer class="blog-footer">
+<center class=" mt-auto">
+<footer class="blog-footer col-12">
   <p>بلاگ سایت اوپوزکس <a href="https://opozex.ir/">Opozex</a> 
     <br>
     by <a href="https://t.me/yacn_1414">@yacn_1414</a></p>
