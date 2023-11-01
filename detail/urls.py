@@ -4,5 +4,5 @@ app_name = "detail"
 urlpatterns = [
     path('search/',views.search,name="search"),
     path('<slug:slug>/',views.detail_post,name="detail_post"),
-    path('<slug:slug>/',views.category,name="category"),
+    path('c/<slug:slug>/',views.category,name="category"),
 ]
