@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block title %}admin page : -{{request.user.username}}{% endblock title %}
+{% block main %}
+<center>
+    <h3 style="color: green;">
+        خوش اومدی {{request.user.get_full_name}} ...
+    </h3>
+</center>
+{% endblock main %}

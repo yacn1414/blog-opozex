@@ -21,5 +21,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('',include('core.urls')),
     path('',include('detail.urls')),
-    path('',include('authenticate.urls')),
+    path('zendan/',include('authenticate.urls')),
 ]

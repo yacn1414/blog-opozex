@@ -27,7 +27,9 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-
+LOGIN_REDIRECT_URL = "/"
+LOGIN_URL = "/"
+LOGOUT_REDIRECT_URL = "/"
 # Application definition
 
 INSTALLED_APPS = [
@@ -41,6 +43,7 @@ INSTALLED_APPS = [
     'django_jalali',
     'detail',
     'authenticate',
+    'crispy_forms',
 ]
 
 MIDDLEWARE = [
@@ -122,10 +125,11 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = 'static/'
-# STATIC_ROOT = 'assets/'
+STATIC_ROOT = 'asset/'
 STATICFILES_DIRS = [
     BASE_DIR / "static/",
 ]
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
